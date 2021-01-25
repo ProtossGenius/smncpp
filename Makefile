@@ -1,6 +1,6 @@
 install:
 	cd ./build && cmake ..
-	cd ./build && make install
+	cd ./build && make  && make install
 test:
 
 clean:
