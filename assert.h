@@ -20,6 +20,6 @@
 		<< " (" << SMSTR(rhs) << " = " << rhs << ") not true."); \
 }
 
-
+void print_trace();
 
 #endif /* end of include guard: ASSERT_H_XATLNPCJ */
