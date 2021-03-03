@@ -4,7 +4,7 @@
 #include <iostream>
 #include <ostream>
 
-void print_trace(std::ostream& pinfo = std::cout, std::ostream& perr = std::cerr) {
+void print_call_stack(std::ostream& pinfo, std::ostream& perr) {
     enum { deep = 100 };
     int nptrs;
     void* buffer[100];

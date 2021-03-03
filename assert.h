@@ -1,5 +1,6 @@
 #ifndef ASSERT_H_XATLNPCJ
 #define ASSERT_H_XATLNPCJ
+#include <iostream>
 #include <sstream>
 #define SMSTR(str) #str 
 
@@ -20,6 +21,7 @@
 		<< " (" << SMSTR(rhs) << " = " << rhs << ") not true."); \
 }
 
-void print_trace();
+void print_call_stack(std::ostream& pinfo = std::cout,
+		      std::ostream& perr = std::cerr);
 
 #endif /* end of include guard: ASSERT_H_XATLNPCJ */
