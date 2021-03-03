@@ -1,8 +1,6 @@
 #include "assert.h"
 
 #include <execinfo.h>
-#include <iostream>
-#include <ostream>
 
 void print_call_stack(std::ostream& pinfo, std::ostream& perr) {
     enum { deep = 100 };
@@ -10,14 +8,17 @@ void print_call_stack(std::ostream& pinfo, std::ostream& perr) {
     void* buffer[100];
     char** stackList = nullptr;
     nptrs = backtrace(buffer, deep);
-    pinfo << "backtrace() returns " << nptrs << "address" << std::endl;
-    stackList = (char**)backtrace_symbols(buffer, nptrs);
+    pinfo << "backtrace() returns " << nptrs << " address" << std::endl;
+    stackList = backtrace_symbols(buffer, nptrs);
 
     if (nullptr == stackList) {
-	perr << "backtrace_symbols returns nullptr" << std::endl;
-	return;
+		perr << "backtrace_symbols returns nullptr" << std::endl;
+		return;
     }
-	for(int i = 0; i < nptrs; ++i){
-		pinfo << stackList[nptrs] << std::endl;
-	}
+
+    for (int i = 0; i < nptrs; ++i) {
+	pinfo << "\t stack<" << i << ">:  " << stackList[i] << std::endl;
+    }
+
+    free(stackList);
 }
