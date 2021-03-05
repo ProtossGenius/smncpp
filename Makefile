@@ -1,6 +1,8 @@
 install:
 	cd ./build && cmake ..
-	cd ./build && make  && make install
+	cd ./build && make -j8
+	cd ./build && sudo make install
+
 test:
 
 clean:

@@ -22,7 +22,8 @@ set(CXX_FLAGS
         -rdynamic
         )
 
-add_library(smncpp asio_server.cpp base_asio_socket.cpp muti-service.cpp socket_itf.cpp socket_mtd.cpp ticker.cpp assert.cpp)
+aux_source_directory(. src_files)
+add_library(smncpp ${src_files})
 target_link_libraries(smncpp )
 
 install (TARGETS smncpp DESTINATION lib)
