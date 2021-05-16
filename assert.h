@@ -24,4 +24,11 @@
 void print_call_stack(std::ostream& pinfo = std::cout,
 		      std::ostream& perr = std::cerr);
 
+template<class ErrorType>
+inline void doThrow(const std::string& info){
+	std::stringstream ss;
+	print_call_stack(ss, std::cerr);
+	throw ErrorType(info + ss.str());
+}
+
 #endif /* end of include guard: ASSERT_H_XATLNPCJ */

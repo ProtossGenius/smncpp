@@ -27,5 +27,8 @@ add_library(smncpp ${src_files})
 target_link_libraries(smncpp )
 
 install (TARGETS smncpp DESTINATION lib)
-install (FILES asio_server.h assert.h base_asio_socket.h channel.h lockm.h muti-service.h socket_itf.h socket_mtd.h ticker.h DESTINATION include/smncpp)
+install (FILES 
+	asio_server.h assert.h base_asio_socket.h channel.h lockm.h muti-service.h socket_itf.h socket_mtd.h ticker.h 
+	string_tree.h	
+	DESTINATION include/smncpp)
 
